@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CpDevTools.Webservices.Extensions
+namespace CpDevTools.Webservices.Util
 {
     public static class ExtensionUtil
     {
@@ -18,6 +18,7 @@ namespace CpDevTools.Webservices.Extensions
                 action(config, env, services);
             }
         }
+        
         public static void Config(WebApplication app, Action<IConfiguration, IWebHostEnvironment, IServiceProvider> action)
         {
             using (var scope = app.Services.CreateScope())

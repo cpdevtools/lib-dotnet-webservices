@@ -32,6 +32,8 @@
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
       <PackageReference Include="Microsoft.IdentityModel" Version="7.0.0" />
       <PackageReference Include="NetEscapades.Configuration.Yaml" Version="2.2.0" />
+      <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+      <PackageReference Include="serilog.sinks.elasticsearch" Version="8.4.1" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
      <ItemGroup>
