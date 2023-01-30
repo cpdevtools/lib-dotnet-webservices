@@ -1,0 +1,13 @@
+{
+    "name": "workspace",
+    "version": "0.0.0-dev.0",
+    "private": true,
+    "scripts": {
+        "prepare" : "run-s prepare:*",
+        "prepare:echo" : "echo \"prepare\"",
+        "build": "pnpm -r run build"
+    },
+    "devDependencies": {
+        "npm-run-all2": "^6.0.4"
+    }
+}

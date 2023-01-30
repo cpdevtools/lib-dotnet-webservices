@@ -1,0 +1,17 @@
+{
+    "name": "@cpdevtools/lib-dotnet-webservices",
+    "version": "0.0.0-PLACEHOLDER",
+    "private": true,
+    "scripts": {
+        "prepare": "run-s prepare:*",
+        "prepare:dotnet-restore-tools": "pnpm run dotnet-restore-tools", 
+        "prepare:dotnet-restore": "pnpm run dotnet-restore",
+        "dotnet-restore-tools": "dotnet tool restore",
+        "dotnet-restore": "dotnet restore",
+        "build": "run-s build:*",
+        "build:dotnet": "dotnet build"
+    },
+    "devDependencies": {
+        "npm-run-all2": "^6.0.4"
+    }
+}
