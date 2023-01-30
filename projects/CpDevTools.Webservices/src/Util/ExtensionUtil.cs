@@ -18,7 +18,7 @@ namespace CpDevTools.Webservices.Util
                 action(config, env, services);
             }
         }
-        
+
         public static void Config(WebApplication app, Action<IConfiguration, IWebHostEnvironment, IServiceProvider> action)
         {
             using (var scope = app.Services.CreateScope())

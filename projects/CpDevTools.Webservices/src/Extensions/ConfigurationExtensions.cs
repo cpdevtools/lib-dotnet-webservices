@@ -1,4 +1,3 @@
-
 using Mcrio.Configuration.Provider.Docker.Secrets;
 using Microsoft.Extensions.Configuration;
 
