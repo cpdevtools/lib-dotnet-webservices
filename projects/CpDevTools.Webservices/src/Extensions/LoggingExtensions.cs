@@ -54,7 +54,7 @@ namespace CpDevTools.Webservices.Extensions
                         }
                     });
                 }
-            }, writeToProviders: true);
+            });
             return LoggingUtil.Logger;
         }
         public static WebApplication UseWebserviceLogging(this WebApplication app)
