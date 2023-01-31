@@ -1,8 +1,6 @@
 
 using System.Reflection;
-using CpDevTools.Webservices.Configuration;
 using CpDevTools.Webservices.Util;
-using DotNet.Globbing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,20 +14,12 @@ namespace CpDevTools.Webservices.Extensions
 {
     public static class MvcExtensions
     {
-        private static CorsConfiguration GetConfiguration(IConfiguration config)
-        {
-            return config.GetValue<CorsConfiguration>("security:cors") ?? new CorsConfiguration();
-        }
-
-
-
+      
         public static IMvcBuilder SetupWebserviceMvc(this IServiceCollection serviceCollection, Action<MvcOptions, IConfiguration>? configureControllers = null, Action<MvcNewtonsoftJsonOptions, IConfiguration>? configureJson = null)
         {
             IMvcBuilder? mvcBuilder = null;
             ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
             {
-
-                var config = GetConfiguration(cfg);
                 serviceCollection.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
                 mvcBuilder = serviceCollection
                     .AddControllers(options =>

@@ -7,8 +7,8 @@ var logger = builder.SetupWebserviceLogging();
 builder.Configuration.SetupDockerWebserviceConfiguration();
 
 builder.Services.SetupWebserviceDocumentation();
-builder.Services.SetupWebserviceCors();
 builder.Services.SetupWebserviceJwtAuthentication();
+builder.Services.SetupWebserviceCors();
 builder.Services.SetupWebserviceMvc();
 
 var app = builder.Build();
