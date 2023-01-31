@@ -5,8 +5,7 @@ namespace CpDevTools.Webservices.Util
     public static class LoggingUtil
     {
         private static bool _loggerInitialized;
-        private static Serilog.ILogger? _defaultLogger;
-
+        
         private static Serilog.ILogger CreateDefaultLogger()
         {
             if (!_loggerInitialized)
