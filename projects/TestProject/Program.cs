@@ -9,7 +9,7 @@ builder.Configuration.SetupDockerWebserviceConfiguration();
 builder.Services.SetupWebserviceDocumentation();
 builder.Services.SetupWebserviceCors();
 builder.Services.SetupWebserviceJwtAuthentication();
-builder.Services.SetupWebserviceControllers();
+builder.Services.SetupWebserviceMvc();
 
 var app = builder.Build();
 
@@ -17,6 +17,6 @@ var app = builder.Build();
 app.UseWebserviceDocumentation();
 app.UseWebserviceCors();
 app.UseWebserviceJwtAuthentication();
-app.UseWebserviceControllers();
+app.UseWebserviceMvc();
 
 app.Run();

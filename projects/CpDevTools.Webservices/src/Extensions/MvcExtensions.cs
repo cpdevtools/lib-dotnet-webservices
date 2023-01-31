@@ -5,6 +5,7 @@ using CpDevTools.Webservices.Util;
 using DotNet.Globbing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -22,16 +23,21 @@ namespace CpDevTools.Webservices.Extensions
 
 
 
-        public static IServiceCollection SetupWebserviceControllers(this IServiceCollection serviceCollection)
+        public static IMvcBuilder SetupWebserviceMvc(this IServiceCollection serviceCollection, Action<MvcOptions, IConfiguration>? configureControllers = null, Action<MvcNewtonsoftJsonOptions, IConfiguration>? configureJson = null)
         {
+            IMvcBuilder? mvcBuilder = null;
             ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
             {
+
                 var config = GetConfiguration(cfg);
                 serviceCollection.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-                var a = serviceCollection
+                mvcBuilder = serviceCollection
                     .AddControllers(options =>
                     {
-
+                        if (configureControllers != null)
+                        {
+                            configureControllers(options, cfg);
+                        }
                     })
                     .AddApplicationPart(Assembly.GetEntryAssembly()!)
                     .AddNewtonsoftJson(options =>
@@ -41,11 +47,15 @@ namespace CpDevTools.Webservices.Extensions
                         {
                             NamingStrategy = new CamelCaseNamingStrategy()
                         });
+                        if (configureJson != null)
+                        {
+                            configureJson(options, cfg);
+                        }
                     });
             });
-            return serviceCollection;
+            return mvcBuilder!;
         }
-        public static WebApplication UseWebserviceControllers(this WebApplication app)
+        public static WebApplication UseWebserviceMvc(this WebApplication app)
         {
             app.UseRouting();
             app.MapControllers();
