@@ -9,17 +9,8 @@ namespace CpDevTools.Webservices.Configuration
     public class CorsConfiguration
     {
 
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get; set; } = false;
         public List<string> AllowedDomains { get; set; } = new();
         public List<string> DeniedDomains { get; set; } = new();
-
-
-        public CorsConfiguration()
-        {
-            if (Enabled == null)
-            {
-                Enabled = false;
-            }
-        }
     }
 }

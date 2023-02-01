@@ -2,13 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+    <Authors>Dan Erdelt</Authors>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratedAssemblyInfoFile>assemblyinfo.cs</GeneratedAssemblyInfoFile>
+    <Company>Conceptual Pathways</Company>
+    <PackageProjectUrl>https://github.com/cpdevtools/lib-dotnet-webservice</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/cpdevtools/lib-dotnet-webservice</RepositoryUrl>
+    <aaa>fdsf</aaa>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="YamlDotNet" Version="12.3.1" />
   </ItemGroup>
 
   <ItemGroup>

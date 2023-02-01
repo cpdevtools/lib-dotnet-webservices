@@ -9,16 +9,7 @@ namespace CpDevTools.Webservices.Configuration
     public class JwtConfiguration
     {
 
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get; set; } = false;
         public string? Authority { get; set; }
-
-
-        public JwtConfiguration()
-        {
-            if (Enabled == null)
-            {
-                Enabled = false;
-            }
-        }
     }
 }

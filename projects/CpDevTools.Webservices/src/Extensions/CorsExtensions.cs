@@ -12,7 +12,7 @@ namespace CpDevTools.Webservices.Extensions
     {
         private static CorsConfiguration GetConfiguration(IConfiguration config)
         {
-            return config.GetValue<CorsConfiguration>("security:cors") ?? new CorsConfiguration();
+            return ConfigUtil.GetConfig<CorsConfiguration>(config, "security:cors") ?? new CorsConfiguration();
         }
 
         private static string SwapSlashesAndDots(string source)

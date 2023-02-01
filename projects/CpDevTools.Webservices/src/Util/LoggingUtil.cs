@@ -1,4 +1,6 @@
+using System.Reflection;
 using Serilog;
+using Serilog.Extensions.Logging;
 
 namespace CpDevTools.Webservices.Util
 {
@@ -25,7 +27,7 @@ namespace CpDevTools.Webservices.Util
                 .Enrich.FromLogContext()
                 .WriteTo.Console();
         }
-        public static Microsoft.Extensions.Logging.ILogger Logger => (Microsoft.Extensions.Logging.ILogger)CreateDefaultLogger();
+        public static Microsoft.Extensions.Logging.ILogger Logger = new SerilogLoggerFactory(CreateDefaultLogger()).CreateLogger(Assembly.GetEntryAssembly()!.GetName().Name);
 
 
     }

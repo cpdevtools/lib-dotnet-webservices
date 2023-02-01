@@ -1,5 +1,8 @@
 using Mcrio.Configuration.Provider.Docker.Secrets;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using System.Text;
+using System.Text.Json;
 
 namespace CpDevTools.Webservices.Extensions
 {
@@ -11,7 +14,8 @@ namespace CpDevTools.Webservices.Extensions
             IConfigurationBuilder builder = cm
                     .AddYamlFile("config.yml")
                     .AddYamlFile("/config/environment.yml", true)
-                    .AddYamlFile("/config/webservice.yml", true);
+                    .AddYamlFile("/config/webservice.yml", true)
+                    .AddYamlFile("build._meta_.yml", true);
 
             if (configureBuilder != null)
             {
