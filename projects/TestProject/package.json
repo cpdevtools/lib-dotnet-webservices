@@ -9,8 +9,9 @@
     "dotnet-restore": "dotnet restore",
     "build": "run-s build:*",
     "build:dotnet": "docker-compose -f docker-compose.build.yml up build",
-    "start": "run-s start:*",
-    "start:dotnet": "docker-compose -f docker-compose.build.yml up start",
+    "start": "run-s -c start:*",
+    "start:down": "docker-compose -f docker-compose.build.yml down",
+    "start:up": "docker-compose -f docker-compose.build.yml up start",
     "fix": "dotnet format",
     "pre-commit": "run-s pre-commit:*",
     "pre-commit:fix": "lint-staged --allow-empty --relative"
