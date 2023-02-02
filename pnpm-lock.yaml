@@ -21,7 +21,10 @@ importers:
       npm-run-all2: 6.0.4
 
   projects/TestProject:
-    specifiers: {}
+    specifiers:
+      '@cpdevtools/lib-dotnet-webservices': ../CpDevTools.Webservices
+    dependencies:
+      '@cpdevtools/lib-dotnet-webservices': link:../CpDevTools.Webservices
 
 packages:
 

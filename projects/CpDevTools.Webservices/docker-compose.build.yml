@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  build:
+    image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    volumes:
+      - "${PROJECTS}/lib-dotnet-webservices:/src"
+
+    working_dir: /src/projects/CpDevTools.Webservices
+    command: "pnpm run docker-build"
