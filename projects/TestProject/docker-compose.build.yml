@@ -7,7 +7,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     volumes:
-      - "${PROJECTS:-.}/lib-dotnet-webservices:/src:rw"
+      - "${PROJECTS:-..}/lib-dotnet-webservices:/src:rw"
 
     working_dir: /src/projects/TestProject
     command: "dotnet build"
