@@ -1,3 +1,11 @@
 {
-  "name": "asdf"
+  "name": "asdf",
+  "scripts": {
+    "pre-commit": "run-s pre-commit:*",
+    "pre-commit:fix": "lint-staged --allow-empty --relative"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.cs": "dotnet format --include"
+  }
 }
