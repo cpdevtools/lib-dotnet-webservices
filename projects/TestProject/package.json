@@ -9,7 +9,7 @@
     "dotnet-restore-tools": "dotnet tool restore",
     "dotnet-restore": "dotnet restore",
     "build": "run-s build:*",
-    "build:dotnet": "docker-compose -f docker-compose.build.yml run dotnet-build dotnet build",
+    "build:dotnet": "docker-compose -f docker-compose.build.yml run dotnet-build",
     "start": "run-s start:*",
     "start:up": "docker-compose -f docker-compose.build.yml run dotnet-build dotnet watch --non-interactive",
     "fix": "dotnet format",
