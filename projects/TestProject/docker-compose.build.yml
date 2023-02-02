@@ -9,14 +9,16 @@ services:
       - "${PROJECTS}/lib-dotnet-webservices:/src"
 
     working_dir: /src/projects/TestProject
-    command: "pnpm run docker-build"
+    command: "dotnet build"
 
   start:
     image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "5192:80"
     volumes:
       - "${PROJECTS}/lib-dotnet-webservices:/src"
 
     working_dir: /src/projects/TestProject
-    command: "pnpm run docker-start"
+    command: "dotnet watch --non-interactive"

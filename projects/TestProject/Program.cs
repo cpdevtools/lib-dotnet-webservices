@@ -27,7 +27,4 @@ app.UseWebserviceJwtAuthentication();
 app.UseWebserviceExceptionHandlers();
 app.UseWebserviceMvc();
 
-
 app.RunWebservice();
-
-Console.WriteLine();

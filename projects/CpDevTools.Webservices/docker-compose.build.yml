@@ -9,4 +9,4 @@ services:
       - "${PROJECTS}/lib-dotnet-webservices:/src"
 
     working_dir: /src/projects/CpDevTools.Webservices
-    command: "pnpm run docker-build"
+    command: "dotnet build"
