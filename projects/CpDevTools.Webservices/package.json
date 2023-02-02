@@ -10,9 +10,15 @@
     "dotnet-restore": "dotnet restore",
     "build": "run-s build:*",
     "build:dotnet": "dotnet build",
-    "fix": "dotnet format"
+    "fix": "dotnet format",
+    "pre-commit": "run-s pre-commit:*",
+    "pre-commit:fix": "lint-staged --allow-empty --relative"
   },
   "devDependencies": {
     "npm-run-all2": "^6.0.4"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.cs": "dotnet format --include"
   }
 }

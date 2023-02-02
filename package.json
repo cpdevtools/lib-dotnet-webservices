@@ -8,6 +8,7 @@
     "prepare:husky": "husky install",
     "pre-commit": "run-s pre-commit:*",
     "pre-commit:tags": "pnpm run clean-tags",
+    "pre-commit:projects": "pnpm -r run pre-commit",
     "clean-tags": "git tag | xargs git tag -d",
     "build": "pnpm -r run build",
     "start": "pnpm -r run start",
@@ -24,10 +25,5 @@
     "lint-staged": "^13.1.0",
     "npm-run-all2": "^6.0.4",
     "prettier": "^2.8.3"
-  },
-  "lint-staged": {
-    
-    "*.cs": "pnpm run fix:projects -- --include",
-    "*.*": "dornet format --include"
   }
 }
