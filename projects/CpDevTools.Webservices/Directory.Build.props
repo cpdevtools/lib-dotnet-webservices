@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
-        <MSBuildProjectExtensionsPath>/build/lib</MSBuildProjectExtensionsPath>
-        <BaseOutputPath>/build/lib/out</BaseOutputPath>
-        <BaseIntermediateOutputPath>/build/lib/int</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>/tmp/dotnet-build/CpDevTools.Webservices/obj</MSBuildProjectExtensionsPath>
+        <BaseOutputPath>/tmp/dotnet-build/CpDevTools.Webservices/bin</BaseOutputPath>
+        <BaseIntermediateOutputPath>/tmp/dotnet-build/CpDevTools.Webservices/obj</BaseIntermediateOutputPath>
     </PropertyGroup>
 </Project>

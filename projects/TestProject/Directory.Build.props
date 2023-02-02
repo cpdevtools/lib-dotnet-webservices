@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
-        <MSBuildProjectExtensionsPath>/build/test</MSBuildProjectExtensionsPath>
-        <BaseOutputPath>/build/test/out</BaseOutputPath>
-        <BaseIntermediateOutputPath>/build/test/int</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>/tmp/dotnet-build/TestProject/obj</MSBuildProjectExtensionsPath>
+        <BaseOutputPath>/tmp/dotnet-build/TestProject/bin</BaseOutputPath>
+        <BaseIntermediateOutputPath>/tmp/dotnet-build/TestProject/obj</BaseIntermediateOutputPath>
     </PropertyGroup>
 </Project>
