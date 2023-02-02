@@ -3,6 +3,7 @@ version: "3.8"
 services:
   dotnet-build:
     image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
+    user: vscode:vscode
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     volumes:
