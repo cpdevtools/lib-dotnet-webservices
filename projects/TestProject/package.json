@@ -1,6 +1,7 @@
 {
   "name": "@cpdevtools/lib-dotnet-webservices-test-project",
   "version": "0.0.0-PLACEHOLDER",
+  "private": true,
   "scripts": {
     "prepare": "run-s prepare:*",
     "prepare:dotnet-restore-tools": "pnpm run dotnet-restore-tools",
