@@ -10,4 +10,4 @@ services:
       - "${PROJECTS}/lib-dotnet-webservices:/src:rw"
 
     working_dir: /src/projects/CpDevTools.Webservices
-    command: "ls -al /src"
+    command: "ls -al /src/lib-dotnet-webservices"
