@@ -6,7 +6,6 @@ namespace CpDevTools.Webservices.Exceptions
     public object? Details { get; }
 
         public HttpResponseException(int statusCode, object? details = null) : this(statusCode, null, details) { }
-
     public HttpResponseException(int statusCode, string? message = null, object? details = null) : base(message)
     {
       StatusCode = statusCode;
