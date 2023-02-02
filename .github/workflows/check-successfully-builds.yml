@@ -1,4 +1,4 @@
-name: Push - Test
+name: OnPush - Test Build
 
 on:
   push:
