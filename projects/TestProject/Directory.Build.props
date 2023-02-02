@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <MSBuildProjectExtensionsPath>/build/test</MSBuildProjectExtensionsPath>
+        <BaseOutputPath>/build/test/out</BaseOutputPath>
+        <BaseIntermediateOutputPath>/build/test/int</BaseIntermediateOutputPath>
+    </PropertyGroup>
+</Project>

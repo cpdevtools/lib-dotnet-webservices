@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <MSBuildProjectExtensionsPath>/build/lib</MSBuildProjectExtensionsPath>
+        <BaseOutputPath>/build/lib/out</BaseOutputPath>
+        <BaseIntermediateOutputPath>/build/lib/int</BaseIntermediateOutputPath>
+    </PropertyGroup>
+</Project>

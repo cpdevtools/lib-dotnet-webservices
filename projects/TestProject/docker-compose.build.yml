@@ -3,11 +3,12 @@ version: "3.8"
 services:
   dotnet-build:
     image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
-    user: vscode:vscode
+    container_name: dotnet-build
+    #user: "1000:1000"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     volumes:
-      - "${PROJECTS}/lib-dotnet-webservices:/src"
+      - "${PROJECTS}/lib-dotnet-webservices:/src:rw"
 
     working_dir: /src/projects/TestProject
     command: "dotnet build"
