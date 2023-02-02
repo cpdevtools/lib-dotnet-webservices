@@ -4,8 +4,6 @@ services:
   dotnet-build:
     image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
     container_name: dotnet-build
-    env_file:
-      - .env
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     volumes:
