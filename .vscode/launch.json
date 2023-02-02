@@ -5,10 +5,23 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": ".NET Core Attach",
+      "name": "Debug",
       "type": "coreclr",
       "request": "attach",
-      "justMyCode": false
+      "preLaunchTask": "start-debug",
+      "processName": "TestProject",
+      "sourceFileMap": {
+        "/src": "${workspaceRoot}/"
+      },
+      "pipeTransport": {
+        "pipeCwd": "${workspaceRoot}",
+        "pipeProgram": "docker",
+        "pipeArgs": ["exec", "-i", "dotnet-build"],
+        "quoteArgs": false,
+        "debuggerPath": "/remote_debugger/vsdbg"
+      },
+      "justMyCode": false,
+      "requireExactSource": false
     }
   ]
 }

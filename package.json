@@ -12,6 +12,7 @@
     "clean-tags": "git tag | xargs git tag -d",
     "build": "pnpm -r run build",
     "start": "pnpm -r run start",
+    "startd": "pnpm -r run startd",
     "test": "pnpm -r run test",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier --write --ignore-unknown .",
