@@ -6,5 +6,5 @@ runs:
   steps:
     - run: pnpm run actions-build
       env:
-        PROJECTS: ../
+        PROJECTS: /home/runner/work/
       shell: bash
