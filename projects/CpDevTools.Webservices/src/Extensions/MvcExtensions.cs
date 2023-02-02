@@ -1,5 +1,7 @@
 
 using System.Reflection;
+using CpDevTools.Webservices.Exceptions;
+using CpDevTools.Webservices.Models.Errors;
 using CpDevTools.Webservices.Util;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -14,13 +16,15 @@ namespace CpDevTools.Webservices.Extensions
 {
     public static class MvcExtensions
     {
-      
+
         public static IMvcBuilder SetupWebserviceMvc(this IServiceCollection serviceCollection, Action<MvcOptions, IConfiguration>? configureControllers = null, Action<MvcNewtonsoftJsonOptions, IConfiguration>? configureJson = null)
         {
             IMvcBuilder? mvcBuilder = null;
             ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
             {
                 serviceCollection.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+                serviceCollection.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
+
                 mvcBuilder = serviceCollection
                     .AddControllers(options =>
                     {
@@ -29,6 +33,19 @@ namespace CpDevTools.Webservices.Extensions
                             configureControllers(options, cfg);
                         }
                     })
+                    .AddMvcOptions(options =>
+                    {
+                        options.Filters.Add<HttpResponseExceptionFilter>();
+                    })
+                    .ConfigureApiBehaviorOptions(options =>
+                    {
+                        options.InvalidModelStateResponseFactory = context => new BadRequestObjectResult(new ValidationErrorModel
+                        {
+                            TraceId = context.HttpContext.TraceIdentifier,
+                            Details = ValidationErrorsModel.FromModelState(context.ModelState)
+                        });
+                    })
+                    .AddDataAnnotationsLocalization()
                     .AddApplicationPart(Assembly.GetEntryAssembly()!)
                     .AddNewtonsoftJson(options =>
                     {

@@ -15,11 +15,6 @@ namespace CpDevTools.Webservices.Extensions
             return serviceCollection;
         }
 
-        public static WebApplication UseWebserviceSameSiteCookies(this WebApplication app)
-        {
-            app.UseCookiePolicy();
-            return app;
-        }
     }
 
 }

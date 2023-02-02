@@ -4,25 +4,26 @@ using Microsoft.Extensions.Configuration;
 namespace CpDevTools.Webservices.Configuration
 {
 
-    public class ConnectionConfiguration : IEnumerable<KeyValuePair<string, string>>
+   
+    public class ConnectionConfiguration<TContext> : IEnumerable<KeyValuePair<string, string>>
     {
-        public static implicit operator string(ConnectionConfiguration c) => c.ToConnectionString();
+        public static implicit operator string(ConnectionConfiguration<TContext> c) => c.ToConnectionString();
        
-        public static ConnectionConfiguration FromConnectionString(string connectionString, string propertyDelimiter = ";", string valueDelimiter = "=")
+        public static ConnectionConfiguration<TContext> FromConnectionString(string connectionString, string propertyDelimiter = ";", string valueDelimiter = "=")
         {
-            return new ConnectionConfiguration(propertyDelimiter, valueDelimiter)
+            return new ConnectionConfiguration<TContext>(propertyDelimiter, valueDelimiter)
                 .SetProperties(connectionString, propertyDelimiter, valueDelimiter);
         }
 
-        public static ConnectionConfiguration FromConfigurationSection(IConfigurationSection section, string propertyDelimiter = ";", string valueDelimiter = "=")
+        public static ConnectionConfiguration<TContext> FromConfigurationSection(IConfigurationSection section, string propertyDelimiter = ";", string valueDelimiter = "=")
         {
-            return new ConnectionConfiguration(propertyDelimiter, valueDelimiter)
+            return new ConnectionConfiguration<TContext>(propertyDelimiter, valueDelimiter)
                 .SetProperties(section);
         }
 
-        public static ConnectionConfiguration FromConfigurationByName(IConfiguration config, string connectionStringName, string propertyDelimiter = ";", string valueDelimiter = "=")
+        public static ConnectionConfiguration<TContext> FromConfigurationByName(IConfiguration config, string connectionStringName, string propertyDelimiter = ";", string valueDelimiter = "=")
         {
-            var cs = new ConnectionConfiguration(propertyDelimiter, valueDelimiter);
+            var cs = new ConnectionConfiguration<TContext>(propertyDelimiter, valueDelimiter);
             var conStr = config.GetConnectionString(connectionStringName);
             if (!String.IsNullOrWhiteSpace(conStr))
             {
@@ -34,7 +35,7 @@ namespace CpDevTools.Webservices.Configuration
                 cs.SetProperties(conSection);
             }
 
-            var a = new ConnectionConfiguration();
+            var a = new ConnectionConfiguration<TContext>();
             string b = (string)a;
 
             return cs;
@@ -63,7 +64,7 @@ namespace CpDevTools.Webservices.Configuration
             return _properties.ContainsKey(key) ? _properties[key] : defaultValue;
         }
 
-        public ConnectionConfiguration RemoveProperty(string key)
+        public ConnectionConfiguration<TContext> RemoveProperty(string key)
         {
             _properties.Remove(key);
             return this;
@@ -79,13 +80,13 @@ namespace CpDevTools.Webservices.Configuration
             return _properties.Keys.ToList();
         }
 
-        public ConnectionConfiguration SetProperty(string key, string value)
+        public ConnectionConfiguration<TContext> SetProperty(string key, string value)
         {
             _properties.Add(key, value);
             return this;
         }
 
-        public ConnectionConfiguration SetProperties(Dictionary<string, string> props)
+        public ConnectionConfiguration<TContext> SetProperties(Dictionary<string, string> props)
         {
             foreach (var item in props)
             {
@@ -94,17 +95,17 @@ namespace CpDevTools.Webservices.Configuration
             return this;
         }
 
-        public ConnectionConfiguration SetProperties(string connectionString, string? propertyDelimiter = null, string? valueDelimiter = null)
+        public ConnectionConfiguration<TContext> SetProperties(string connectionString, string? propertyDelimiter = null, string? valueDelimiter = null)
         {
             return SetProperties(parseConnectionString(connectionString, propertyDelimiter, valueDelimiter));
         }
 
-        public ConnectionConfiguration SetProperties(IConfigurationSection section)
+        public ConnectionConfiguration<TContext> SetProperties(IConfigurationSection section)
         {
             return SetProperties(parseConnectionSection(section));
         }
 
-        public ConnectionConfiguration ClearProperties(IConfigurationSection config)
+        public ConnectionConfiguration<TContext> ClearProperties(IConfigurationSection config)
         {
             _properties.Clear();
             return this;

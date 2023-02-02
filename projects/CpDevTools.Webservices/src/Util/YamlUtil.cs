@@ -15,6 +15,7 @@ namespace CpDevTools.Webservices.Util
         private static readonly IDeserializer _deserializer = new DeserializerBuilder()
             .WithNamingConvention(CamelCaseNamingConvention.Instance)
             .Build();
+
         public static string Serialize<T>(T value)
         {
             if (value == null)
@@ -23,7 +24,7 @@ namespace CpDevTools.Webservices.Util
             }
             return _serializer.Serialize(value);
         }
-        
+
         public static T Deserialize<T>(string value)
         {
             return _deserializer.Deserialize<T>(value);

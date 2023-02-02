@@ -26,30 +26,6 @@ namespace CpDevTools.Webservices.Extensions
                 {
                     app.UseDeveloperExceptionPage();
                 }
-                app.UseExceptionHandler(appBuilder =>
-                {
-                    appBuilder.Run(async (context) =>
-                    {
-                        if (context.Response.Headers.ContentType == "application/json")
-                        {
-                            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-                            context.Response.Headers.Add("Access-Control-Allow-Origin", context.Request.Headers["Origin"]);
-                        }
-                        var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
-                        var error = exceptionHandlerPathFeature?.Error;
-
-                        if (error != null)
-                        {
-                            await context.Response.WriteAsync($"\"{error.Message}\"");
-
-                        }
-                        else
-                        {
-                            await context.Response.WriteAsync("\"Internal Server Error\"");
-                        }
-                    });
-                });
-
             });
             return app;
         }

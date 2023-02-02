@@ -18,7 +18,10 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseWebserviceDocumentation();
-app.UseWebserviceSameSiteCookies();
+
+app.UseCookiePolicy();
+app.UseWebserviceForwardedHeaders();
+
 app.UseWebserviceCors();
 app.UseWebserviceJwtAuthentication();
 app.UseWebserviceExceptionHandlers();
