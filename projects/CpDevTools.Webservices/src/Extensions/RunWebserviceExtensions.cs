@@ -14,19 +14,19 @@ using Newtonsoft.Json.Serialization;
 
 namespace CpDevTools.Webservices.Extensions
 {
-    public static class RunWebserviceExtensions
-    {
+  public static class RunWebserviceExtensions
+  {
 
-        private static WebserviceConfiguration GetConfiguration(IConfiguration config)
-        {
-            return ConfigUtil.GetConfig<WebserviceConfiguration>(config, "webservice") ?? new WebserviceConfiguration();
-        }
-        public static void RunWebservice(this WebApplication app)
-        {
-            ExtensionUtil.Config(app, (cfg, env, services) =>
-            {
-                var config = GetConfiguration(cfg);
-                var header = $"""
+    private static WebserviceConfiguration GetConfiguration(IConfiguration config)
+    {
+      return ConfigUtil.GetConfig<WebserviceConfiguration>(config, "webservice") ?? new WebserviceConfiguration();
+    }
+    public static void RunWebservice(this WebApplication app)
+    {
+      ExtensionUtil.Config(app, (cfg, env, services) =>
+      {
+        var config = GetConfiguration(cfg);
+        var header = $"""
 
 
                     ======================================================================
@@ -38,12 +38,12 @@ namespace CpDevTools.Webservices.Extensions
 
                     """;
 
-                LoggingUtil.Logger.Log(LogLevel.Information, header);
-                app.Run();
-            });
-        }
-
-
+        LoggingUtil.Logger.Log(LogLevel.Information, header);
+        app.Run();
+      });
     }
+
+
+  }
 
 }

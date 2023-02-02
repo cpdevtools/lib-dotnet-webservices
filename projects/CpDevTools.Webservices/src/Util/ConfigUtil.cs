@@ -9,17 +9,17 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace CpDevTools.Webservices.Util
 {
-    public static class ConfigUtil
-    {
+  public static class ConfigUtil
+  {
 
-        public static T? GetConfig<T>(IConfiguration config, string path)
-        {
-            return config.GetSection(path).Get<T>();
-        }
-        public static T? GetConfig<T>(IConfigurationSection config)
-        {
-            return config.Get<T>();
-        }
+    public static T? GetConfig<T>(IConfiguration config, string path)
+    {
+      return config.GetSection(path).Get<T>();
     }
+    public static T? GetConfig<T>(IConfigurationSection config)
+    {
+      return config.Get<T>();
+    }
+  }
 
 }

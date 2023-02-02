@@ -7,28 +7,28 @@ using Microsoft.Extensions.Hosting;
 
 namespace CpDevTools.Webservices.Extensions
 {
-    public static class ExceptionHandlerExtensions
+  public static class ExceptionHandlerExtensions
+  {
+    public static IServiceCollection SetupWebserviceExceptionHandlers(this IServiceCollection serviceCollection)
     {
-        public static IServiceCollection SetupWebserviceExceptionHandlers(this IServiceCollection serviceCollection)
-        {
-            ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
-            {
+      ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
+      {
 
-            });
-            return serviceCollection;
-        }
-
-        public static WebApplication UseWebserviceExceptionHandlers(this WebApplication app)
-        {
-            ExtensionUtil.Config(app, (cfg, env, services) =>
-            {
-                if (!env.IsProduction())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-            });
-            return app;
-        }
+      });
+      return serviceCollection;
     }
+
+    public static WebApplication UseWebserviceExceptionHandlers(this WebApplication app)
+    {
+      ExtensionUtil.Config(app, (cfg, env, services) =>
+      {
+        if (!env.IsProduction())
+        {
+          app.UseDeveloperExceptionPage();
+        }
+      });
+      return app;
+    }
+  }
 
 }

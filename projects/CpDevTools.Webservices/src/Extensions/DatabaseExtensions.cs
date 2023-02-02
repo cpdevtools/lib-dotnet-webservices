@@ -8,20 +8,20 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace CpDevTools.Webservices.Extensions
 {
-    public static class DatabaseExtensions
+  public static class DatabaseExtensions
+  {
+    public static IServiceCollection AddWebserviceDatabase<TContext>(this IServiceCollection serviceCollection, string connectionName) where TContext : DbContext
     {
-        public static IServiceCollection AddWebserviceDatabase<TContext>(this IServiceCollection serviceCollection, string connectionName) where TContext : DbContext
-        {
-            ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
-            { 
-                serviceCollection.TryAddSingleton<ConnectionConfiguration<TContext>>(
-                    providers => ConnectionConfiguration<TContext>.FromConfigurationByName(cfg, connectionName)
-                );
-                serviceCollection.AddDbContext<TContext>();
-            });
-            return serviceCollection;
-        }
-
+      ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
+      {
+        serviceCollection.TryAddSingleton<ConnectionConfiguration<TContext>>(
+                  providers => ConnectionConfiguration<TContext>.FromConfigurationByName(cfg, connectionName)
+              );
+        serviceCollection.AddDbContext<TContext>();
+      });
+      return serviceCollection;
     }
+
+  }
 
 }

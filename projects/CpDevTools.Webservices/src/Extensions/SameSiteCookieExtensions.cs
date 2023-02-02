@@ -4,17 +4,17 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CpDevTools.Webservices.Extensions
 {
-    public static class SameSiteCookieExtensions
+  public static class SameSiteCookieExtensions
+  {
+    public static IServiceCollection SetupWebserviceSameSiteCookies(this IServiceCollection serviceCollection)
     {
-        public static IServiceCollection SetupWebserviceSameSiteCookies(this IServiceCollection serviceCollection)
-        {
-            ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
-            {
-                serviceCollection.Configure<CookiePolicyOptions>(CookieUtil.ConfigureSameSiteCookies);
-            });
-            return serviceCollection;
-        }
-
+      ExtensionUtil.Config(serviceCollection, (cfg, env, services) =>
+      {
+        serviceCollection.Configure<CookiePolicyOptions>(CookieUtil.ConfigureSameSiteCookies);
+      });
+      return serviceCollection;
     }
+
+  }
 
 }
