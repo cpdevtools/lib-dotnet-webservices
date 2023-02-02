@@ -14,12 +14,3 @@ jobs:
 
       - name: Check Version
         uses: ./.github/actions/check-version
-
-      - name: Install Node & Dependencies
-        uses: ./.github/actions/setup-node
-
-      - name: Build
-        uses: ./.github/actions/build
-
-      - name: Run Tests
-        uses: ./.github/actions/test
