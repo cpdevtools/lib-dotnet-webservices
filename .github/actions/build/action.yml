@@ -5,6 +5,4 @@ runs:
   using: "composite"
   steps:
     - run: pnpm run actions-build
-      env:
-        PROJECTS: /home/runner/work/
       shell: bash
