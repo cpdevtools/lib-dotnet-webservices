@@ -10,4 +10,4 @@ services:
       - "${PROJECT_ROOT}:/src:rw"
 
     working_dir: /src/${PROJECT_PATH}
-    command: "dotnet build"
+    command: "dotnet watch --non-interactive"

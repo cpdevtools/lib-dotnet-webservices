@@ -4,7 +4,7 @@
       {
         "label": "start-debug",
         "type": "shell",
-        "command": "pnpm run startd",
+        "command": "cd projects/TestProject/ && docker-compose -f docker-compose.build.yml up -d --build dotnet-build",
         "problemMatcher": "$msCompile",
         "presentation": {
           "reveal": "silent",

@@ -10,6 +10,7 @@
       "request": "attach",
       "preLaunchTask": "start-debug",
       "processName": "TestProject",
+      
       "sourceFileMap": {
         "/src": "${workspaceRoot}/"
       },

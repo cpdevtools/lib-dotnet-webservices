@@ -28,37 +28,37 @@ namespace CpDevTools.Webservices.Extensions
         mvcBuilder = serviceCollection
                   .AddControllers(options =>
                   {
-                if (configureControllers != null)
-                {
-                  configureControllers(options, cfg);
-                }
-              })
+                    if (configureControllers != null)
+                    {
+                      configureControllers(options, cfg);
+                    }
+                  })
                   .AddMvcOptions(options =>
                   {
-                options.Filters.Add<HttpResponseExceptionFilter>();
-              })
+                    options.Filters.Add<HttpResponseExceptionFilter>();
+                  })
                   .ConfigureApiBehaviorOptions(options =>
                   {
-                options.InvalidModelStateResponseFactory = context => new BadRequestObjectResult(new ValidationErrorModel
-                {
-                  TraceId = context.HttpContext.TraceIdentifier,
-                  Details = ValidationErrorsModel.FromModelState(context.ModelState)
-                });
-              })
+                    options.InvalidModelStateResponseFactory = context => new BadRequestObjectResult(new ValidationErrorModel
+                    {
+                      TraceId = context.HttpContext.TraceIdentifier,
+                      Details = ValidationErrorsModel.FromModelState(context.ModelState)
+                    });
+                  })
                   .AddDataAnnotationsLocalization()
                   .AddApplicationPart(Assembly.GetEntryAssembly()!)
                   .AddNewtonsoftJson(options =>
                   {
-                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                options.SerializerSettings.Converters.Add(new StringEnumConverter
-                {
-                  NamingStrategy = new CamelCaseNamingStrategy()
-                });
-                if (configureJson != null)
-                {
-                  configureJson(options, cfg);
-                }
-              });
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter
+                    {
+                      NamingStrategy = new CamelCaseNamingStrategy()
+                    });
+                    if (configureJson != null)
+                    {
+                      configureJson(options, cfg);
+                    }
+                  });
       });
       return mvcBuilder!;
     }
