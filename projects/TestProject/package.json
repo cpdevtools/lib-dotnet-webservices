@@ -9,10 +9,9 @@
     "dotnet-restore-tools": "dotnet tool restore",
     "dotnet-restore": "dotnet restore",
     "build": "run-s build:*",
-    "build:dotnet": "docker-compose --exit-code-from build -f docker-compose.build.yml up build",
+    "build:dotnet": "docker-compose -f docker-compose.build.yml run dotnet-build dotnet build",
     "start": "run-s start:*",
-    "start:down": "docker-compose -f docker-compose.build.yml down",
-    "start:up": "docker-compose --exit-code-from start -f docker-compose.build.yml up start",
+    "start:up": "docker-compose -f docker-compose.build.yml run dotnet-build dotnet watch --non-interactive",
     "fix": "dotnet format",
     "pre-commit": "run-s pre-commit:*",
     "pre-commit:fix": "lint-staged --allow-empty --relative"
