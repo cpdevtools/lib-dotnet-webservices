@@ -1,6 +1,5 @@
 namespace CpDevTools.Webservices.Exceptions
 {
-
   public class HttpResponseException : Exception
   {
     public int StatusCode { get; }
