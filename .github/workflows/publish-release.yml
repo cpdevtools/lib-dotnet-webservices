@@ -29,9 +29,6 @@ jobs:
       - name: Setup Node & Dependencies
         uses: ./.github/actions/setup-node
 
-      - name: Setup Dotnet
-        uses: ./.github/actions/setup-dotnet
-
       - name: Set Version
         uses: ./.github/actions/set-version
         with:
@@ -42,7 +39,6 @@ jobs:
 
       - name: Publish
         uses: ./.github/actions/publish-dotnet-package
-
 
 
   create-release:
