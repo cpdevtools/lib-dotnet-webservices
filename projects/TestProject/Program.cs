@@ -29,4 +29,5 @@ app.UseWebserviceExceptionHandlers();
 app.UseWebserviceMvc();
 app.UseWebserviceHealthCheck();
 
+app.MigrateDatabases();
 app.RunWebservice();
