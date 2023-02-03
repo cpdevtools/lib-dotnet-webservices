@@ -24,7 +24,7 @@ namespace CpDevTools.Webservices.Extensions
       {
         serviceCollection.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         serviceCollection.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
-
+        serviceCollection.AddHealthChecks();
         mvcBuilder = serviceCollection
                   .AddControllers(options =>
                   {
