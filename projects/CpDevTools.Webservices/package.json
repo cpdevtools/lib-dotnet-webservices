@@ -11,7 +11,7 @@
     "build": "docker-compose -f docker-compose.build.yml run dotnet-build",
     "pack": "docker-compose -f docker-compose.pack.yml run dotnet-build",
     "fix": "dotnet format",
-    "apply-version": "echo \"Set version\"",
+    "apply-version": "pnpm version --allow-same-version --commit-hooks=false --git-tag-version=false",
     "pre-commit": "run-s pre-commit:*",
     "pre-commit:fix": "lint-staged --allow-empty --relative"
   },
