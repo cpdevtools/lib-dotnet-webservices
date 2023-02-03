@@ -26,16 +26,17 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v3.3.0
 
-      - name: Install Node & Dependencies
+      - name: Setup Node & Dependencies
         uses: ./.github/actions/setup-node
 
-      - name: Install Node & Dependencies
+      - name: Setup Dotnet
         uses: ./.github/actions/setup-dotnet
 
+      - name: Pack
+        uses: ./.github/actions/pack
 
-
-      # - name: Publish
-      #   uses: ./.github/actions/publish-dotnet
+      - name: Publish
+        uses: ./.github/actions/publish-dotnet-package
 
 
 

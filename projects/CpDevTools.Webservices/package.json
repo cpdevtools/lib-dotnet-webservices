@@ -8,10 +8,10 @@
     "prepare:dotnet-restore": "pnpm run dotnet-restore",
     "dotnet-restore-tools": "dotnet tool restore",
     "dotnet-restore": "dotnet restore",
-    "build": "run-s build:*",
-    "build:echo": "echo $PROJECTS",
-    "build:dotnet": "docker-compose -f docker-compose.build.yml run dotnet-build",
+    "build": "docker-compose -f docker-compose.build.yml run dotnet-build",
+    "pack": "docker-compose -f docker-compose.pack.yml run dotnet-build",
     "fix": "dotnet format",
+    "apply-version": "echo \"Set version\"",
     "pre-commit": "run-s pre-commit:*",
     "pre-commit:fix": "lint-staged --allow-empty --relative"
   },

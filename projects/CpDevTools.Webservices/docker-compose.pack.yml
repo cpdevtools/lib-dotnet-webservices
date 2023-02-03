@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  dotnet-build:
+    image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
+    container_name: dotnet-build
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+    volumes:
+      - "${PROJECT_ROOT}:/src:rw"
+      - "${PROJECT_ROOT}/.pack:/pack:rw"
+
+    working_dir: /src/${PROJECT_PATH}
+    command: "dotnet build -c Release -o /pack"

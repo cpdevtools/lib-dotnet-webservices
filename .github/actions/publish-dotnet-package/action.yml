@@ -1,0 +1,24 @@
+name: "Publish npm module"
+description: "Publish the npm module"
+
+inputs:
+  dotnetVersion:
+    description: "The version of dotnet to install"
+    required: false
+    default: "7.0"
+  packPath:
+    description: "The path to the directory containing the nuget packages"
+    required: false
+    default: ".pack"
+  githubToken:
+    description: "A github PAT"
+    required: false
+    default: ${{ github.token }}
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      working-directory: ${{ inputs.packPath }}
+      run: |
+        dotnet nuget push **/*.nupkg --api-key=\"${{ inputs.githubToken }}\"
