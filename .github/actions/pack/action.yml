@@ -1,0 +1,8 @@
+name: "Pack"
+description: "Build and pack the project"
+
+runs:
+  using: "composite"
+  steps:
+    - run: pnpm run actions-pack
+      shell: bash

@@ -13,6 +13,7 @@ builder.Services.SetupWebserviceCors();
 builder.Services.SetupWebserviceMvc();
 builder.Services.SetupWebserviceSameSiteCookies();
 builder.Services.SetupWebserviceExceptionHandlers();
+builder.Services.SetupWebserviceHealthCheck();
 
 var app = builder.Build();
 
@@ -26,5 +27,6 @@ app.UseWebserviceCors();
 app.UseWebserviceJwtAuthentication();
 app.UseWebserviceExceptionHandlers();
 app.UseWebserviceMvc();
+app.UseWebserviceHealthCheck();
 
 app.RunWebservice();

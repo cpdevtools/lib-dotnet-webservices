@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <MSBuildProjectExtensionsPath>/tmp/dotnet-build/CpDevTools.Webservices/obj</MSBuildProjectExtensionsPath>
+        <BaseOutputPath>/tmp/dotnet-build/CpDevTools.Webservices/bin</BaseOutputPath>
+        <BaseIntermediateOutputPath>/tmp/dotnet-build/CpDevTools.Webservices/obj</BaseIntermediateOutputPath>
+    </PropertyGroup>
+</Project>

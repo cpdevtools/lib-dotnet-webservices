@@ -1,12 +1,13 @@
 version: "3.8"
 
 services:
-  build:
+  dotnet-build:
     image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
+    container_name: dotnet-build
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     volumes:
-      - "${PROJECTS}/lib-dotnet-webservices:/src"
+      - "${PROJECT_ROOT}:/src:rw"
 
-    working_dir: /src/projects/CpDevTools.Webservices
+    working_dir: /src/${PROJECT_PATH}
     command: "dotnet build"

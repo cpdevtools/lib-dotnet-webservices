@@ -1,4 +1,4 @@
-name: Create pull request on version change
+name: OnPush - Create PR 
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   create_pr:
-    name: Create a version pull request if necessary
+    name: Create a Release PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project

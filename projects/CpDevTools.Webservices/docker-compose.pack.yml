@@ -4,18 +4,11 @@ services:
   dotnet-build:
     image: ghcr.io/cpdevtools/docker-dotnet-images/dotnet-sdk:7.0.0-dev.0
     container_name: dotnet-build
-
     environment:
-      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_ENVIRONMENT: Production
     volumes:
       - "${PROJECT_ROOT}:/src:rw"
-
-    healthcheck:
-      test: curl --fail http://localhost/healthcheck || exit 1
-      interval: 60s
-      retries: 5
-      start_period: 1s
-      timeout: 5s
+      - "${PROJECT_ROOT}/.pack:/pack:rw"
 
     working_dir: /src/${PROJECT_PATH}
-    command: "dotnet watch --non-interactive"
+    command: "dotnet build -c Release -o /pack"

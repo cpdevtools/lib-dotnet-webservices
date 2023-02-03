@@ -1,0 +1,17 @@
+name: OnPullRequest - Check Release Version
+
+on:
+  pull_request:
+    branches:
+      - "release/*"
+
+jobs:
+  check_version_valid_and_new:
+    name: Version is valid for release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Check Version
+        uses: ./.github/actions/check-version

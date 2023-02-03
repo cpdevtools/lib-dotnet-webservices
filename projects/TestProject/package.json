@@ -1,6 +1,7 @@
 {
   "name": "@cpdevtools/lib-dotnet-webservices-test-project",
   "version": "0.0.0-PLACEHOLDER",
+  "private": true,
   "scripts": {
     "prepare": "run-s prepare:*",
     "prepare:dotnet-restore-tools": "pnpm run dotnet-restore-tools",
@@ -8,10 +9,9 @@
     "dotnet-restore-tools": "dotnet tool restore",
     "dotnet-restore": "dotnet restore",
     "build": "run-s build:*",
-    "build:dotnet": "docker-compose -f docker-compose.build.yml up build",
-    "start": "run-s -c start:*",
-    "start:down": "docker-compose -f docker-compose.build.yml down",
-    "start:up": "docker-compose -f docker-compose.build.yml up start",
+    "build:dotnet": "docker-compose -f docker-compose.build.yml run dotnet-build dotnet build",
+    "start": "docker-compose -f docker-compose.build.yml run dotnet-build",
+    "startd": "docker-compose -f docker-compose.build.yml up -d dotnet-build",
     "fix": "dotnet format",
     "pre-commit": "run-s pre-commit:*",
     "pre-commit:fix": "lint-staged --allow-empty --relative"
