@@ -1,7 +1,6 @@
 name: "Check version"
 description: ""
 
-
 outputs:
   version:
     description: "Version"

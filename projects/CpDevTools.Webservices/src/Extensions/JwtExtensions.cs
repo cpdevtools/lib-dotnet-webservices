@@ -27,19 +27,19 @@ namespace CpDevTools.Webservices.Extensions
                  .AddAuthentication(SCHEME_NAME)
                  .AddJwtBearer(SCHEME_NAME, options =>
                  {
-               options.Authority = config.Authority;
-               if (!env.IsProduction())
-               {
-                 options.BackchannelHttpHandler = new HttpClientHandler
-                 {
-                   ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
-                 };
-               }
-               options.TokenValidationParameters = new TokenValidationParameters
-               {
-                 ValidateAudience = false
-               };
-             });
+                   options.Authority = config.Authority;
+                   if (!env.IsProduction())
+                   {
+                     options.BackchannelHttpHandler = new HttpClientHandler
+                     {
+                       ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+                     };
+                   }
+                   options.TokenValidationParameters = new TokenValidationParameters
+                   {
+                     ValidateAudience = false
+                   };
+                 });
 
       });
       return serviceCollection;
