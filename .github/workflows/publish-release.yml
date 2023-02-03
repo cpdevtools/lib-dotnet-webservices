@@ -1,13 +1,13 @@
-name: Publish Node Package
+name: OnPush - Create Release
 
 on:
   push:
     branches:
-      # - "release/*"
-      - main
+      - "release/*"
 
 jobs:
   setup:
+    name: Setup Release Information
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -20,6 +20,7 @@ jobs:
         uses: ./.github/actions/check-version
 
   publish:
+    name: Build and publish
     runs-on: ubuntu-latest
     needs: setup
     steps:
@@ -43,8 +44,8 @@ jobs:
       - name: Publish
         uses: ./.github/actions/publish-dotnet-package
 
-
   create-release:
+    name: Create Github release and tags
     runs-on: ubuntu-latest
     needs: publish
     steps:
