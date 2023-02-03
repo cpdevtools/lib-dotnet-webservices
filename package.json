@@ -19,14 +19,14 @@
     "fix:prettier": "prettier --write --ignore-unknown .",
     "fix:projects": "pnpm -r run fix",
     "apply-version": "run-p \"apply-version:* {1}\" --",
-    "apply-version:set-version":"pnpm version --allow-same-version --no-commit-hooks",
-    "apply-version:set-project-versions":"pnpm -r run apply-version",
+    "apply-version:set-version": "pnpm version --allow-same-version --no-commit-hooks",
+    "apply-version:set-project-versions": "pnpm -r run apply-version",
     "reset-hard": "run-s reset-hard:*",
     "reset-hard:git-clean": "git clean -dfx && git reset --hard",
     "reset-hard:install": "pnpm install --force",
-    "actions-build" : "pnpm run build",
-    "actions-pack" : "pnpm run pack",
-    "actions-test" : "pnpm run test"
+    "actions-build": "pnpm run build",
+    "actions-pack": "pnpm run pack",
+    "actions-test": "pnpm run test"
   },
   "devDependencies": {
     "husky": "^8.0.3",
