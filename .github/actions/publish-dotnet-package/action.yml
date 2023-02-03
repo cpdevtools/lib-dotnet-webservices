@@ -14,14 +14,14 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/setup-dotnet@v3.0.3
-      env:
-        NUGET_AUTH_TOKEN: ${{ inputs.githubToken }}
-      with:
-        dotnet-version: "${{ inputs.dotnetVersion }}"
-        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+    # - uses: actions/setup-dotnet@v3.0.3
+    #   env:
+    #     NUGET_AUTH_TOKEN: ${{ inputs.githubToken }}
+    #   with:
+    #     dotnet-version: "${{ inputs.dotnetVersion }}"
+    #     source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
 
     - shell: bash
       working-directory: ${{ inputs.packPath }}
       run: |
-        dotnet nuget push **/*.nupkg --api-key=\"${{ inputs.githubToken }}\"
+        dotnet nuget push **/*.nupkg
