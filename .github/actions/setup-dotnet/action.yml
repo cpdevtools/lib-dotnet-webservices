@@ -12,6 +12,8 @@ runs:
   using: "composite"
   steps:
     - uses: actions/setup-dotnet@v3.0.3
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       with:
         dotnet-version: "${{ inputs.dotnetVersion }}"
         source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
