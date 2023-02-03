@@ -24,4 +24,4 @@ runs:
     - shell: bash
       working-directory: ${{ inputs.packPath }}
       run: |
-        dotnet nuget push **/*.nupkg
+        dotnet nuget push **/*.nupkg --api-key=\"${{ inputs.githubToken }}\"
