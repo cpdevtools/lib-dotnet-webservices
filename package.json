@@ -10,6 +10,7 @@
     "pre-commit:tags": "pnpm run clean-tags",
     "pre-commit:apply-version-placeholders": "pnpm run apply-version-placeholders",
     "pre-commit:projects": "pnpm -r run pre-commit",
+    "pre-commit:git-add": "git add -u",
     "clean-tags": "git tag | xargs git tag -d",
     "build": "pnpm -r run build",
     "pack": "pnpm -r run pack",

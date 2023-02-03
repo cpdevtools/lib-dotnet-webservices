@@ -1,6 +1,6 @@
 {
   "name": "@cpdevtools/lib-dotnet-webservices",
-  "version": "0.0.1-dev.0",
+  "version": "0.0.0-PLACEHOLDER",
   "private": true,
   "scripts": {
     "prepare": "run-s prepare:*",
