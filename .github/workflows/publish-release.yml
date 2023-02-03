@@ -32,6 +32,11 @@ jobs:
       - name: Setup Dotnet
         uses: ./.github/actions/setup-dotnet
 
+      - name: Set Version
+        uses: ./.github/actions/set-version
+        with:
+          version: ${{ needs.setup.outputs.version }}
+
       - name: Pack
         uses: ./.github/actions/pack
 
@@ -40,12 +45,12 @@ jobs:
 
 
 
-  # create-release:
-  #   runs-on: ubuntu-latest
-  #   needs: publish
-  #   steps:
-  #     - name: Checkout Project
-  #       uses: actions/checkout@v3.3.0
+  create-release:
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
 
-  #     - name: Create Release
-  #       uses: ./.github/actions/create-release
+      - name: Create Release
+        uses: ./.github/actions/create-release
