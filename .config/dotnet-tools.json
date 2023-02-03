@@ -1,5 +1,12 @@
 {
-    "version": 1,
-    "isRoot": true,
-    "tools": {}
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "dotnet-version-cli": {
+      "version": "2.3.1",
+      "commands": [
+        "dotnet-version"
+      ]
+    }
+  }
 }

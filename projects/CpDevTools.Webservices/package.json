@@ -1,6 +1,6 @@
 {
   "name": "@cpdevtools/lib-dotnet-webservices",
-  "version": "0.0.0-PLACEHOLDER",
+  "version": "0.0.1-dev.0",
   "private": true,
   "scripts": {
     "prepare": "run-s prepare:*",
@@ -11,7 +11,9 @@
     "build": "docker-compose -f docker-compose.build.yml run dotnet-build",
     "pack": "docker-compose -f docker-compose.pack.yml run dotnet-build",
     "fix": "dotnet format",
-    "apply-version": "pnpm version --allow-same-version --commit-hooks=false --git-tag-version=false",
+    "apply-version": "run-p \"apply-version:* {1}\" --",
+    "apply-version:npm": "pnpm version --allow-same-version --commit-hooks=false --git-tag-version=false",
+    "apply-version:dotnet": "dotnet version --skip-vcs",
     "pre-commit": "run-s pre-commit:*",
     "pre-commit:fix": "lint-staged --allow-empty --relative"
   },
