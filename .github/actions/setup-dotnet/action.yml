@@ -6,6 +6,10 @@ inputs:
     description: "The version of dotnet to install"
     required: false
     default: "7.0"
+  githubToken:
+    description: "A github PAT"
+    required: false
+    default: ${{ github.token }}
 
 
 runs:
@@ -13,7 +17,7 @@ runs:
   steps:
     - uses: actions/setup-dotnet@v3.0.3
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{ inputs.githubToken }}
       with:
         dotnet-version: "${{ inputs.dotnetVersion }}"
         source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
