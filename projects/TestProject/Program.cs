@@ -15,6 +15,8 @@ builder.Services.SetupWebserviceSameSiteCookies();
 builder.Services.SetupWebserviceExceptionHandlers();
 builder.Services.SetupWebserviceHealthCheck();
 
+builder.Services.AddWebserviceCurrentUserService();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

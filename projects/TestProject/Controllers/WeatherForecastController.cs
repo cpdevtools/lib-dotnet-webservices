@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using CpDevTools.Webservices.Models.Errors;
 using Microsoft.AspNetCore.Mvc;
+using CpDevTools.Webservices.Services.Users;
 
 namespace TestProject.Controllers;
 
@@ -14,10 +15,12 @@ public class WeatherForecastController : ControllerBase
     };
 
   private readonly ILogger<WeatherForecastController> _logger;
+  private readonly ICurrentUserService<DefaultUser> _userService;
 
-  public WeatherForecastController(ILogger<WeatherForecastController> logger)
+  public WeatherForecastController(ILogger<WeatherForecastController> logger, ICurrentUserService<DefaultUser> userService)
   {
     _logger = logger;
+    _userService = userService;
   }
 
   [HttpGet(Name = "GetWeatherForecast")]
