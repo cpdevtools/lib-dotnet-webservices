@@ -65,6 +65,7 @@ namespace CpDevTools.Webservices.Extensions
     public static WebApplication UseWebserviceMvc(this WebApplication app)
     {
       app.UseRouting();
+      app.UseAuthorization();
       app.MapControllers();
       return app;
     }
