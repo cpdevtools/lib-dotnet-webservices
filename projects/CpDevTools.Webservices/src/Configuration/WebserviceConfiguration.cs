@@ -118,12 +118,10 @@ namespace CpDevTools.Webservices.Configuration
       var meta = assembly?.GetCustomAttributes<AssemblyMetadataAttribute>();
       var repositoryUrl = meta?.Where(a => a.Key == "RepositoryUrl").Select(a => a.Value).FirstOrDefault();
 
-
-      Title = title ?? product ?? "Webservice";
+      Title = product ?? title  ?? "Webservice";
       Company = company;
       RepositoryUrl = repositoryUrl;
       Version = informationalVersion;
-
     }
   }
 }

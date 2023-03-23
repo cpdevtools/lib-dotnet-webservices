@@ -60,6 +60,7 @@ namespace CpDevTools.Webservices.Exceptions
 
           ReturnError(context, error);
           context.ExceptionHandled = true;
+          _logger.LogError(exception, exception.Message);
         }
         else if (context.Result is ErrorModel error)
         {

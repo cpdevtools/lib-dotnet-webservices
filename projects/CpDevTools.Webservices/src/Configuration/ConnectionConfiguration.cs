@@ -34,10 +34,6 @@ namespace CpDevTools.Webservices.Configuration
       {
         cs.SetProperties(conSection);
       }
-
-      var a = new ConnectionConfiguration<TContext>();
-      string b = (string)a;
-
       return cs;
     }
 
