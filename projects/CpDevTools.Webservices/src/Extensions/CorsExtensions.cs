@@ -30,34 +30,34 @@ namespace CpDevTools.Webservices.Extensions
 
         serviceCollection.AddCors(corsOpts =>
               {
-            corsOpts.AddDefaultPolicy(policyOpts =>
-                  {
-                if (config.Enabled != true)
-                {
-                  policyOpts.SetIsOriginAllowed(origin => true);
-                }
-                else
-                {
-                  policyOpts.SetIsOriginAllowed(origin =>
+                corsOpts.AddDefaultPolicy(policyOpts =>
+                      {
+                        if (config.Enabled != true)
                         {
-                        if (origin.Contains("://"))
-                        {
-                          origin = origin.Split("://")[1];
+                          policyOpts.SetIsOriginAllowed(origin => true);
                         }
-                        origin = SwapSlashesAndDots(origin);
-                        var allowed =
-                                  !deniedOrigins.Where(g => g.IsMatch(origin)).Any() &&
-                                  allowedOrigins.Where(g => g.IsMatch(origin)).Any();
-                        return allowed;
+                        else
+                        {
+                          policyOpts.SetIsOriginAllowed(origin =>
+                            {
+                              if (origin.Contains("://"))
+                              {
+                                origin = origin.Split("://")[1];
+                              }
+                              origin = SwapSlashesAndDots(origin);
+                              var allowed =
+                                    !deniedOrigins.Where(g => g.IsMatch(origin)).Any() &&
+                                    allowedOrigins.Where(g => g.IsMatch(origin)).Any();
+                              return allowed;
+                            });
+                        }
+                        policyOpts
+                              .AllowCredentials()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader()
+                              .Build();
                       });
-                }
-                policyOpts
-                          .AllowCredentials()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader()
-                          .Build();
               });
-          });
 
 
       });

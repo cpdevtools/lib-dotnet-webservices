@@ -4,9 +4,7 @@
   "tools": {
     "dotnet-version-cli": {
       "version": "2.3.1",
-      "commands": [
-        "dotnet-version"
-      ]
+      "commands": ["dotnet-version"]
     }
   }
 }

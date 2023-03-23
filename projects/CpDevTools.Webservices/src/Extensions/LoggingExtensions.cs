@@ -63,23 +63,23 @@ namespace CpDevTools.Webservices.Extensions
       {
         options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
               {
-            diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
-            diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
-            diagnosticContext.Set("RequestContentType", httpContext.Request.ContentType);
-            diagnosticContext.Set("ResponseContentType", httpContext.Response.ContentType);
-            diagnosticContext.Set("RequestContentLength", httpContext.Request.ContentLength);
-            diagnosticContext.Set("ResponseContentLength", httpContext.Response.ContentLength);
+                diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
+                diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
+                diagnosticContext.Set("RequestContentType", httpContext.Request.ContentType);
+                diagnosticContext.Set("ResponseContentType", httpContext.Response.ContentType);
+                diagnosticContext.Set("RequestContentLength", httpContext.Request.ContentLength);
+                diagnosticContext.Set("ResponseContentLength", httpContext.Response.ContentLength);
 
-            if (httpContext.User.Identity?.IsAuthenticated ?? false)
-            {
-              diagnosticContext.Set("UserId", (httpContext.User.Identity as ClaimsIdentity)!.FindFirst("sub")?.Value);
-            }
-            try
-            {
-              diagnosticContext.Set("SessionId", httpContext.Session.Id);
-            }
-            catch { }
-          };
+                if (httpContext.User.Identity?.IsAuthenticated ?? false)
+                {
+                  diagnosticContext.Set("UserId", (httpContext.User.Identity as ClaimsIdentity)!.FindFirst("sub")?.Value);
+                }
+                try
+                {
+                  diagnosticContext.Set("SessionId", httpContext.Session.Id);
+                }
+                catch { }
+              };
       });
       return app;
     }

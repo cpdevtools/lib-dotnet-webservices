@@ -1,7 +1,6 @@
 name: "Set version"
 description: ""
 
-
 inputs:
   version:
     description: "Version"

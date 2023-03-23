@@ -30,8 +30,8 @@ namespace CpDevTools.Webservices.Extensions
           serviceCollection.AddEndpointsApiExplorer();
           serviceCollection.AddSwaggerGen(options =>
                 {
-                options.SwaggerDoc(serviceConfig.DocumentId, serviceConfig);
-              });
+                  options.SwaggerDoc(serviceConfig.DocumentId, serviceConfig);
+                });
         }
 
       });
@@ -47,14 +47,14 @@ namespace CpDevTools.Webservices.Extensions
           var serviceConfig = GetWebserviceConfiguration(cfg);
           app.UseSwagger(options =>
                 {
-                options.RouteTemplate = "documentation/api/{documentName}.specification.{json|yaml|yml}";
-              });
+                  options.RouteTemplate = "documentation/api/{documentName}.specification.{json|yaml|yml}";
+                });
           app.UseSwaggerUI(options =>
                 {
-                options.RoutePrefix = "documentation";
-                options.SwaggerEndpoint($"api/{serviceConfig.DocumentId}.specification.yml", "Yaml");
-                options.SwaggerEndpoint($"api/{serviceConfig.DocumentId}.specification.json", "Json");
-              });
+                  options.RoutePrefix = "documentation";
+                  options.SwaggerEndpoint($"api/{serviceConfig.DocumentId}.specification.yml", "Yaml");
+                  options.SwaggerEndpoint($"api/{serviceConfig.DocumentId}.specification.json", "Json");
+                });
         }
 
       });

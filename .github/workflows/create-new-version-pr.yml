@@ -1,4 +1,4 @@
-name: OnPush - Create PR 
+name: OnPush - Create PR
 
 on:
   push:
