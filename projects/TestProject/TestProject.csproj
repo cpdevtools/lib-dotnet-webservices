@@ -9,8 +9,6 @@
     <Company>Conceptual Pathways</Company>
     <PackageProjectUrl>https://github.com/cpdevtools/lib-dotnet-webservice</PackageProjectUrl>
     <RepositoryUrl>https://github.com/cpdevtools/lib-dotnet-webservice</RepositoryUrl>
-    
- 
   </PropertyGroup>
 
   <ItemGroup>

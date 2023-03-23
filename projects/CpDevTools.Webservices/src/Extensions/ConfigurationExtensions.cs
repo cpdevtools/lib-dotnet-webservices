@@ -12,10 +12,10 @@ namespace CpDevTools.Webservices.Extensions
     {
       cm.Sources.Clear();
       IConfigurationBuilder builder = cm
-              .AddYamlFile("config.yml")
-              .AddYamlFile("/config/environment.yml", true)
-              .AddYamlFile("/config/webservice.yml", true)
-              .AddYamlFile("build._meta_.yml", true);
+        .AddYamlFile("config.yml")
+        .AddYamlFile("/config/environment.yml", true)
+        .AddYamlFile("/config/webservice.yml", true)
+        .AddYamlFile("build._meta_.yml", true);
 
       if (configureBuilder != null)
       {
@@ -23,9 +23,9 @@ namespace CpDevTools.Webservices.Extensions
       }
 
       return builder
-          .AddEnvironmentVariables()
-          .AddDockerSecrets()
-          .AddCommandLine(Environment.GetCommandLineArgs());
+        .AddEnvironmentVariables()
+        .AddDockerSecrets()
+        .AddCommandLine(Environment.GetCommandLineArgs());
     }
   }
 
