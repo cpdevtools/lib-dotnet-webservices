@@ -15,7 +15,8 @@ namespace CpDevTools.Webservices.Extensions
         var cfg = ConfigUtil.GetConfig<WebserviceConfiguration>(config, "webservice") ?? new WebserviceConfiguration();
         app.Use((context, next) =>
         {
-          context.Response.Headers.Add("X-Api-Name", cfg.DocumentId);
+          context.Response.Headers.Add("X-Api-Id", cfg.DocumentId);
+          context.Response.Headers.Add("X-Api-Name", cfg.Title);
           context.Response.Headers.Add("X-Api-Version", cfg.Version);
           context.Response.Headers.Add("X-Api-Company", cfg.Company);
           context.Response.Headers.Add("X-Api-LicenseName", cfg.License?.Name);
